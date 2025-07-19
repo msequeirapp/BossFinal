@@ -133,7 +133,7 @@ export default function Photos() {
               <AspectRatio ratio={1 / 1}>
                 <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/0 to-black/70 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10"></div>
                 <img
-                  src={`/assets/hero-bg.png`}  /* Placeholder for demo */
+                  src={image.src}
                   alt={image.alt}
                   className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
                 />

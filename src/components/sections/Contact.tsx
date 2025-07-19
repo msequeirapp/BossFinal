@@ -163,8 +163,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">{t.address}</h3>
-                    <p className="text-white/70">123 Music Avenue</p>
-                    <p className="text-white/70">Los Angeles, CA 90028</p>
+                    <p className="text-white/70">Cartago</p>
+                    <p className="text-white/70">San Jose, Costa Rica</p>
                   </div>
                 </div>
               </div>
@@ -179,7 +179,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">{t.phone}</h3>
-                    <p className="text-white/70">+1 (555) 123-4567</p>
+                    <p className="text-white/70">+506 6304 0420</p>
                   </div>
                 </div>
               </div>
@@ -195,7 +195,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">{t.emailLabel}</h3>
-                    <p className="text-white/70">contact@bossofmelody.com</p>
+                    <p className="text-white/70">bossofmelodycr@gmail.com</p>
                   </div>
                 </div>
               </div>
