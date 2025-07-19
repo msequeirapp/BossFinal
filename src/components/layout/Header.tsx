@@ -68,7 +68,7 @@ export default function Header() {
         >
 <div className="flex items-center gap-2">
   <img
-    src="/assets/bossofmelody/logo-boss.png"
+    src="/assets/bossofmelody/logo-boss.jpeg"
     alt="Boss of Melody Logo"
     className="w-8 h-8 object-contain"
   />
