@@ -1,7 +1,43 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { useLang } from "@/hooks/use-language";
+
+interface ServiceCardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  delay: number;
+  isInView: boolean;
+}
+
+function ServiceCard({ icon, title, description, delay, isInView }: ServiceCardProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{ duration: 0.5, delay }}
+      className="relative group"
+    >
+      <Card className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-melody-fuchsia/30 transition-all duration-300 overflow-hidden">
+        <CardContent className="p-6">
+          {/* Background glow effect */}
+          <div className="absolute inset-0 bg-gradient-to-r from-melody-purple/0 via-melody-fuchsia/0 to-melody-purple/0 group-hover:from-melody-purple/10 group-hover:via-melody-fuchsia/10 group-hover:to-melody-purple/10 transition-all duration-500"></div>
+          
+          {/* Icon */}
+          <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-4 group-hover:bg-melody-fuchsia/20 transition-colors text-melody-fuchsia">
+            {icon}
+          </div>
+          
+          {/* Content */}
+          <h3 className="text-xl font-semibold mb-2">{title}</h3>
+          <p className="text-white/70">{description}</p>
+        </CardContent>
+      </Card>
+    </motion.div>
+  );
+}
 
 export default function Services() {
   const ref = useRef<HTMLDivElement>(null);
@@ -9,123 +45,109 @@ export default function Services() {
   const { translations } = useLang();
   const t = translations.services;
   
-  // Services data
-  const services = [
+  const servicesList = [
     {
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M9 18V5l12-2v13"></path>
+          <circle cx="6" cy="18" r="3"></circle>
+          <circle cx="18" cy="16" r="3"></circle>
+        </svg>
+      ),
       title: t.production,
-      description: t.productionDesc,
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M18 8a6 6 0 0 0-9-5 6 6 0 0 0-3 10 6 6 0 0 0 9 5 6 6 0 0 0 3-10z"></path>
-          <circle cx="12" cy="12" r="2"></circle>
-        </svg>
-      )
+      description: t.productionDesc
     },
     {
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+          <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+          <line x1="12" y1="22.08" x2="12" y2="12"></line>
+        </svg>
+      ),
       title: t.distribution,
-      description: t.distributionDesc,
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="m21.21 15.89-2.12-2.12a1 1 0 0 0-1.42 0l-1.41 1.41c-.2.2-.45.3-.71.3H8.08c-.26 0-.51-.1-.71-.29l-1.4-1.42a1 1 0 0 0-1.42 0l-2.12 2.12a1 1 0 0 0 0 1.42l2.12 2.12a1 1 0 0 0 1.42 0l1.4-1.42c.2-.2.45-.29.71-.29h7.47c.26 0 .51.1.71.29l1.41 1.41a1 1 0 0 0 1.42 0l2.12-2.12a1 1 0 0 0 0-1.42z"></path>
-          <circle cx="12" cy="8" r="2"></circle>
-          <path d="M12 10v4"></path>
-        </svg>
-      )
+      description: t.distributionDesc
     },
     {
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="8.5" cy="7" r="4"></circle>
+          <line x1="20" y1="8" x2="20" y2="14"></line>
+          <line x1="23" y1="11" x2="17" y2="11"></line>
+        </svg>
+      ),
       title: t.development,
-      description: t.developmentDesc,
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M2 12a5 5 0 0 0 5 5 8 8 0 0 1 5 2 8 8 0 0 1 5-2 5 5 0 0 0 5-5V7h-5a8 8 0 0 0-5 2 8 8 0 0 0-5-2H2Z"></path>
-          <path d="M6 11c1.5 0 3 .5 3 2-2 0-3 0-3-2Z"></path>
-          <path d="M18 11c-1.5 0-3 .5-3 2 2 0 3 0 3-2Z"></path>
-        </svg>
-      )
+      description: t.developmentDesc
     },
     {
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M20 11.08V8l-6-6H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2v-3.08c.59-.37 1-.98 1-1.7v-4.44c0-.72-.41-1.33-1-1.7z"></path>
+          <path d="M11 12a1 1 0 1 0 2 0 1 1 0 1 0-2 0"></path>
+          <path d="M14 0v5a2 2 0 0 0 2 2h5"></path>
+        </svg>
+      ),
       title: t.publishing,
-      description: t.publishingDesc,
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M9 3H5a2 2 0 0 0-2 2v4"></path>
-          <path d="M11 21h8a2 2 0 0 0 2-2v-8"></path>
-          <path d="m5 9-3 3 3 3"></path>
-          <path d="m21 11-3-3-3 3"></path>
-          <path d="M9 11v.01"></path>
-          <path d="M9 18v.01"></path>
-          <path d="M15 12v.01"></path>
-          <path d="M15 17v.01"></path>
-        </svg>
-      )
+      description: t.publishingDesc
     },
     {
-      title: t.licensing,
-      description: t.licensingDesc,
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 8a2 2 0 0 1 2 2v4a2 2 0 1 1-4 0v-4a2 2 0 0 1 2-2Z"></path>
-          <rect width="18" height="12" x="3" y="8" rx="2"></rect>
-          <path d="M5 8v6"></path>
-          <path d="M19 8v6"></path>
-          <path d="m2 8 2-4h16l2 4"></path>
+          <polygon points="23 7 16 12 23 17 23 7"></polygon>
+          <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
         </svg>
-      )
+      ),
+      title: t.licensing,
+      description: t.licensingDesc
     }
   ];
 
   return (
-    <section id="services" className="py-20 lg:py-32 bg-melody-dark relative overflow-hidden">
+    <section id="services" className="py-20 lg:py-32 bg-melody-black relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-tr from-melody-dark via-melody-dark to-melody-black"></div>
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-melody-black via-melody-dark to-melody-black"></div>
+        
+        {/* Background glow */}
+        <div className="absolute top-40 left-20 w-80 h-80 rounded-full bg-melody-purple/5 blur-[150px]"></div>
+        <div className="absolute bottom-40 right-20 w-80 h-80 rounded-full bg-melody-fuchsia/5 blur-[150px]"></div>
         
         {/* Decorative elements */}
-        <div className="absolute top-1/2 left-1/4 w-96 h-96 rounded-full bg-melody-purple/5 blur-[120px]"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-melody-fuchsia/5 blur-[100px]"></div>
-        
-        {/* Pattern */}
-        <div className="absolute inset-0 bg-[url('/assets/noise.png')] bg-repeat opacity-5"></div>
+        <div className="absolute top-20 right-[20%] w-20 h-20 border border-white/5 rounded-full"></div>
+        <div className="absolute bottom-20 left-[30%] w-40 h-40 border border-white/5 rounded-full"></div>
       </div>
       
       <div ref={ref} className="container mx-auto px-4 lg:px-8 relative z-10">
+        {/* Section header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">{t.title}</h2>
-            <p className="text-lg text-white/70 mb-0">
+            <span className="inline-block text-melody-fuchsia font-medium mb-2">What We Offer</span>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              {t.title}
+            </h2>
+            <p className="text-lg text-white/70 max-w-2xl mx-auto">
               {t.subtitle}
             </p>
           </motion.div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <motion.div
+        {/* Services grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {servicesList.map((service, index) => (
+            <ServiceCard
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 hover:border-white/20 hover:bg-white/[0.07] transition-all duration-300"
-            >
-              <div className="w-14 h-14 rounded-lg bg-melody-fuchsia/10 flex items-center justify-center mb-6 text-melody-fuchsia">
-                {service.icon}
-              </div>
-              <h3 className="text-xl font-bold mb-4">{service.title}</h3>
-              <p className="text-white/70 mb-6">{service.description}</p>
-              <div className="pt-4 border-t border-white/10">
-                <a href="#contact" className="flex items-center text-melody-fuchsia font-medium">
-                  <span className="mr-2">Learn More</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M5 12h14"></path>
-                    <path d="m12 5 7 7-7 7"></path>
-                  </svg>
-                </a>
-              </div>
-            </motion.div>
+              icon={service.icon}
+              title={service.title}
+              description={service.description}
+              delay={0.2 + index * 0.1}
+              isInView={isInView}
+            />
           ))}
         </div>
         
@@ -134,11 +156,18 @@ export default function Services() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-16 text-center"
+          className="max-w-4xl mx-auto bg-gradient-to-r from-melody-purple/20 to-melody-fuchsia/20 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-white/10"
         >
-          <Button className="bg-gradient-to-r from-melody-purple to-melody-fuchsia hover:opacity-90 transition-all">
-            <a href="#contact">{t.getInTouch}</a>
-          </Button>
+          <div className="flex flex-col md:flex-row items-center justify-between">
+            <div className="mb-6 md:mb-0">
+              <h3 className="text-2xl font-semibold mb-2">Ready to elevate your music career?</h3>
+              <p className="text-white/70">Contact our team today to discuss how we can help you achieve your goals.</p>
+            </div>
+            
+            <Button className="bg-gradient-to-r from-melody-purple to-melody-fuchsia hover:opacity-90 transition-all text-white px-8">
+              {t.getInTouch}
+            </Button>
+          </div>
         </motion.div>
       </div>
     </section>

@@ -1,6 +1,9 @@
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Releases from "@/components/sections/Releases";
+import Services from "@/components/sections/Services";
+import Photos from "@/components/sections/Photos";
+import Contact from "@/components/sections/Contact";
 import { useLang } from "@/hooks/use-language";
 
 export default function Index() {
@@ -11,7 +14,9 @@ export default function Index() {
       <Hero />
       <About />
       <Releases />
-      {/* Other sections will be added here */}
+      <Services />
+      <Photos />
+      <Contact />
     </main>
   );
 }
