@@ -41,11 +41,12 @@ export default function About() {
             <div className="aspect-square overflow-hidden rounded-2xl relative">
               <div className="absolute inset-0 bg-gradient-to-tr from-melody-purple to-melody-fuchsia rounded-2xl p-[2px]">
                 <div className="absolute inset-0 bg-melody-black/80 rounded-2xl">
-                  <div className="w-full h-full flex items-center justify-center bg-melody-dark/50">
-                    <span className="text-xl md:text-2xl font-bold text-white/80">
-                      Founder Image
-                    </span>
-                  </div>
+<img
+  src="/assets/bossofmelody/banner-main.jpg"
+  alt="Moises March - Founder"
+  className="w-full h-full object-cover rounded-2xl"
+/>
+
                 </div>
               </div>
             </div>

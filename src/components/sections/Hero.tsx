@@ -29,11 +29,6 @@ export default function Hero() {
                 transition={{ duration: 0.8 }}
                 className="flex justify-center lg:justify-start"
               >
-                <img
-                  src="/assets/bossofmelody/logo.png"
-                  alt="Boss of Melody Logo"
-                  className="h-12 w-auto mb-4"
-                />
               </motion.div>
 
               <motion.div
