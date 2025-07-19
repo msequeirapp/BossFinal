@@ -42,7 +42,7 @@ export default function About() {
               <div className="absolute inset-0 bg-gradient-to-tr from-melody-purple to-melody-fuchsia rounded-2xl p-[2px]">
                 <div className="absolute inset-0 bg-melody-black/80 rounded-2xl">
 <img
-  src="/assets/bossofmelody/banner-main.jpg"
+  src="/assets/bossofmelody/banner-main.PNG"
   alt="Moises March - Founder"
   className="w-full h-full object-cover rounded-2xl"
 />

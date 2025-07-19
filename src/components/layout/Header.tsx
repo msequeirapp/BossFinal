@@ -66,13 +66,19 @@ export default function Header() {
           className="relative z-10"
           onClick={(e) => scrollToSection(e, "#")}
         >
-          <div className="flex items-center">
-            <span className="text-2xl font-black font-['Montserrat'] tracking-tight">
-              <span className="text-white">BOSS</span>
-              <span className="text-melody-fuchsia">OF</span>
-              <span className="text-white">MELODY</span>
-            </span>
-          </div>
+<div className="flex items-center gap-2">
+  <img
+    src="/assets/bossofmelody/logo-boss.png"
+    alt="Boss of Melody Logo"
+    className="w-8 h-8 object-contain"
+  />
+  <span className="text-2xl font-black font-['Montserrat'] tracking-tight">
+    <span className="text-white">BOSS</span>
+    <span className="text-melody-fuchsia">OF</span>
+    <span className="text-white">MELODY</span>
+  </span>
+</div>
+
         </a>
 
         {/* Desktop Navigation */}
