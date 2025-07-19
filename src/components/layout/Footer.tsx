@@ -1,246 +1,169 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-
-const footerLinks = [
-  {
-    title: "Company",
-    links: [
-      { name: "About Us", href: "#about" },
-      { name: "Services", href: "#services" },
-      { name: "Our Team", href: "#about" },
-      { name: "Contact", href: "#contact" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { name: "Artist Resources", href: "#" },
-      { name: "Submission Guidelines", href: "#" },
-      { name: "Distribution", href: "#services" },
-      { name: "Press Kit", href: "#" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      { name: "Privacy Policy", href: "#" },
-      { name: "Terms of Service", href: "#" },
-      { name: "Cookie Policy", href: "#" },
-      { name: "Licensing", href: "#" },
-    ],
-  },
-];
-
-const socialLinks = [
-  {
-    name: "Facebook",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="w-5 h-5"
-      >
-        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-      </svg>
-    ),
-    href: "#",
-  },
-  {
-    name: "Instagram",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="w-5 h-5"
-      >
-        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
-      </svg>
-    ),
-    href: "#",
-  },
-  {
-    name: "Twitter",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="w-5 h-5"
-      >
-        <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
-      </svg>
-    ),
-    href: "#",
-  },
-  {
-    name: "YouTube",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="w-5 h-5"
-      >
-        <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path>
-        <path d="m10 15 5-3-5-3z"></path>
-      </svg>
-    ),
-    href: "#",
-  },
-  {
-    name: "Spotify",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="w-5 h-5"
-      >
-        <circle cx="12" cy="12" r="10"></circle>
-        <path d="M8 11.999c6-2 10 0 10 0"></path>
-        <path d="M8 8.999c9-2.5 14 0 14 0"></path>
-        <path d="M8 15c6-1 8 0 8 0"></path>
-      </svg>
-    ),
-    href: "#",
-  },
-];
-
-// Smooth scroll function
-const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-  e.preventDefault();
-  
-  if (href === "#") {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    return;
-  }
-  
-  const element = document.querySelector(href);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth" });
-  }
-};
+import { useLang } from "@/hooks/use-language";
 
 export default function Footer() {
+  const { translations } = useLang();
+  const t = translations.footer;
+  const currentYear = new Date().getFullYear();
+  
+  const socialLinks = [
+    {
+      name: "Instagram",
+      url: "https://instagram.com",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg>
+      ),
+    },
+    {
+      name: "Twitter",
+      url: "https://twitter.com",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
+      ),
+    },
+    {
+      name: "YouTube",
+      url: "https://youtube.com",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+        </svg>
+      ),
+    },
+    {
+      name: "Facebook",
+      url: "https://facebook.com",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+        </svg>
+      ),
+    },
+    {
+      name: "TikTok",
+      url: "https://tiktok.com",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+        </svg>
+      ),
+    },
+  ];
+
   return (
-    <footer className="pt-16 pb-8 bg-melody-black border-t border-white/10">
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12 mb-12">
-          {/* Logo and Newsletter */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center mb-6">
-              <span className="text-2xl font-black font-['Montserrat'] tracking-tight">
-                <span className="text-white">BOSS</span>
-                <span className="text-melody-fuchsia">OF</span>
-                <span className="text-white">MELODY</span>
+    <footer className="bg-melody-black border-t border-white/10 pt-16 pb-8 relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 z-0">
+        {/* Gradient backdrop */}
+        <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-melody-purple/5 blur-[150px]"></div>
+        <div className="absolute bottom-0 left-0 w-[200px] h-[200px] rounded-full bg-melody-fuchsia/5 blur-[120px]"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          {/* Company Info */}
+          <div className="space-y-6">
+            <div className="flex items-center">
+              <div className="w-10 h-10 rounded-full overflow-hidden mr-3">
+                <img 
+                  src="/assets/logo.jpeg" 
+                  alt="Boss of Melody Logo" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <span className="font-bold text-xl tracking-tight">
+                Boss of Melody
               </span>
             </div>
-            <p className="text-white/70 mb-6 max-w-md">
-              Join our newsletter to receive the latest updates on new releases, events, and exclusive content from Boss of Melody.
+            
+            <p className="text-white/70 text-sm">
+              {t.aboutText}
             </p>
-            <div className="flex flex-col sm:flex-row gap-2">
-              <Input 
-                type="email" 
-                placeholder="Your email" 
-                className="bg-white/5 border-white/10 text-white"
-              />
-              <Button className="bg-melody-fuchsia hover:bg-melody-fuchsia/90 text-white">
-                Subscribe
-              </Button>
+            
+            {/* Social Media Links */}
+            <div className="flex space-x-4">
+              {socialLinks.map((link, index) => (
+                <a 
+                  key={index}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-full flex items-center justify-center bg-white/5 hover:bg-white/10 hover:text-melody-fuchsia transition-colors border border-white/10"
+                  aria-label={link.name}
+                >
+                  {link.icon}
+                </a>
+              ))}
             </div>
           </div>
-
-          {/* Links */}
-          {footerLinks.map((section, index) => (
-            <div key={index} className="space-y-4">
-              <h3 className="font-bold text-lg">{section.title}</h3>
-              <ul className="space-y-2">
-                {section.links.map((link, i) => (
-                  <li key={i}>
-                    <a 
-                      href={link.href} 
-                      onClick={(e) => scrollToSection(e, link.href)}
-                      className="text-white/70 hover:text-white transition-colors"
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-
+          
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6">{t.quickLinks}</h3>
+            <ul className="space-y-3">
+              <li><a href="#home" className="text-white/70 hover:text-melody-fuchsia transition-colors">Home</a></li>
+              <li><a href="#about" className="text-white/70 hover:text-melody-fuchsia transition-colors">About Us</a></li>
+              <li><a href="#releases" className="text-white/70 hover:text-melody-fuchsia transition-colors">Latest Releases</a></li>
+              <li><a href="#photos" className="text-white/70 hover:text-melody-fuchsia transition-colors">Photo Gallery</a></li>
+              <li><a href="#contact" className="text-white/70 hover:text-melody-fuchsia transition-colors">Contact</a></li>
+            </ul>
+          </div>
+          
+          {/* Services */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6">{t.ourServices}</h3>
+            <ul className="space-y-3">
+              <li><a href="#services" className="text-white/70 hover:text-melody-fuchsia transition-colors">Music Production</a></li>
+              <li><a href="#services" className="text-white/70 hover:text-melody-fuchsia transition-colors">Artist Development</a></li>
+              <li><a href="#services" className="text-white/70 hover:text-melody-fuchsia transition-colors">Distribution & Marketing</a></li>
+              <li><a href="#services" className="text-white/70 hover:text-melody-fuchsia transition-colors">Sync Licensing</a></li>
+              <li><a href="#services" className="text-white/70 hover:text-melody-fuchsia transition-colors">Publishing & Rights</a></li>
+            </ul>
+          </div>
+          
           {/* Contact Info */}
-          <div className="space-y-4">
-            <h3 className="font-bold text-lg">Contact</h3>
-            <div className="space-y-3">
-              <p className="text-white/70">
-                <span className="block font-medium text-white">Address</span>
-                123 Music Avenue<br />
-                Los Angeles, CA 90028
-              </p>
-              <p className="text-white/70">
-                <span className="block font-medium text-white">Email</span>
-                contact@bossofmelody.com
-              </p>
-              <p className="text-white/70">
-                <span className="block font-medium text-white">Phone</span>
-                +1 (555) 123-4567
-              </p>
-            </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-6">{t.contactInfo}</h3>
+            <ul className="space-y-4">
+              <li className="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-3 mt-1 text-melody-fuchsia">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <div>
+                  <span className="block text-white">123 Music Avenue</span>
+                  <span className="text-white/70">Los Angeles, CA 90028</span>
+                </div>
+              </li>
+              <li className="flex">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-3 text-melody-fuchsia">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span className="text-white/70">+1 (555) 123-4567</span>
+              </li>
+              <li className="flex">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-3 text-melody-fuchsia">
+                  <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+                <span className="text-white/70">contact@bossofmelody.com</span>
+              </li>
+            </ul>
           </div>
         </div>
-
-        {/* Social Icons & Copyright */}
-        <div className="pt-8 mt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex items-center space-x-4">
-            {socialLinks.map((link, index) => (
-              <a
-                key={index}
-                href={link.href}
-                aria-label={link.name}
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 text-white/80 hover:bg-melody-purple/20 hover:text-white transition-colors"
-              >
-                {link.icon}
-              </a>
-            ))}
-          </div>
-          <div className="text-white/50 text-sm">
-            &copy; {new Date().getFullYear()} Boss of Melody. All rights reserved.
+        
+        {/* Copyright */}
+        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-white/50 text-sm">
+            &copy; {currentYear} Boss of Melody. {t.allRightsReserved}
+          </p>
+          <div className="flex space-x-6 mt-4 md:mt-0">
+            <a href="#" className="text-white/50 hover:text-white/80 text-sm">Terms of Service</a>
+            <a href="#" className="text-white/50 hover:text-white/80 text-sm">Privacy Policy</a>
+            <a href="#" className="text-white/50 hover:text-white/80 text-sm">Cookie Policy</a>
           </div>
         </div>
       </div>

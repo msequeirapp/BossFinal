@@ -1,6 +1,7 @@
-import { ReactNode } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
+import { ReactNode } from 'react';
+import Header from './Header';
+import Footer from './Footer';
+import { LanguageProvider } from '@/hooks/use-language';
 
 interface LayoutProps {
   children: ReactNode;
@@ -8,12 +9,14 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="flex flex-col min-h-screen bg-melody-black text-white">
-      <Header />
-      <main className="flex-grow">
-        {children}
-      </main>
-      <Footer />
-    </div>
+    <LanguageProvider>
+      <div className="min-h-screen flex flex-col bg-melody-black text-white">
+        <Header />
+        <main className="flex-grow">
+          {children}
+        </main>
+        <Footer />
+      </div>
+    </LanguageProvider>
   );
 }

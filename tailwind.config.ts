@@ -1,13 +1,14 @@
-import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss"
 
-export default {
+const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{js,jsx,ts,tsx}',
-    './components/**/*.{js,jsx,ts,tsx}',
-    './app/**/*.{js,jsx,ts,tsx}',
-    './src/**/*.{js,jsx,ts,tsx}',
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx}',
   ],
+  prefix: "",
   theme: {
     container: {
       center: true,
@@ -51,13 +52,13 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Custom colors for Boss of Melody
+        // Boss of Melody custom colors
         melody: {
-          black: "#0A0A0A",
-          dark: "#121212",
-          purple: "#9C27B0",
-          fuchsia: "#E91E63",
-        },
+          purple: "#8A3AB9",
+          fuchsia: "#E33F5F",
+          black: "#0E0E10",
+          dark: "#16161A"
+        }
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -78,7 +79,12 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      backgroundImage: {
+        "radial-gradient": "radial-gradient(circle at center, rgba(138, 58, 185, 0.15) 0%, rgba(14, 14, 16, 0) 70%)",
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+} satisfies Config
+
+export default config
