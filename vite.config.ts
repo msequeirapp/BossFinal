@@ -10,4 +10,9 @@ export default defineConfig(({ mode }) => ({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  build: {
+    rollupOptions: {
+      external: ['react/jsx-runtime'], // 👈 Esto soluciona el error de build en Vercel
+    },
+  },
 }));
