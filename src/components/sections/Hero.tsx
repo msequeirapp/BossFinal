@@ -46,6 +46,7 @@ export default function Hero() {
 
   return (
     <section id="home" className="relative min-h-screen pt-20 flex items-center overflow-hidden bg-melody-black">
+<<<<<<< HEAD
       {/* Background video */}
       <div className="absolute inset-0 z-0">
         {/* Background video */}
@@ -62,6 +63,12 @@ export default function Hero() {
         
         {/* Overlay for video */}
         <div className="absolute inset-0 bg-gradient-to-b from-melody-black/80 via-melody-black/70 to-melody-dark/80"></div>
+=======
+      {/* Background elements */}
+      <div className="absolute inset-0 z-0">
+        {/* Main background image with overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-melody-black via-melody-black/90 to-melody-dark"></div>
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
         
         {/* Animated gradient circles */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-melody-purple/10 blur-[100px] animate-pulse-soft"></div>

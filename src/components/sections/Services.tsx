@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -13,17 +14,28 @@ import {
   DialogFooter,
   DialogClose,
 } from "@/components/ui/dialog";
+=======
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { useLang } from "@/hooks/use-language";
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
 
 interface ServiceCardProps {
   icon: React.ReactNode;
   title: string;
   description: string;
+<<<<<<< HEAD
   longDescription: string;
   price: string;
+=======
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
   delay: number;
   isInView: boolean;
 }
 
+<<<<<<< HEAD
 function ServiceCard({ icon, title, description, longDescription, price, delay, isInView }: ServiceCardProps) {
   const [isOpen, setIsOpen] = useState(false);
   
@@ -103,6 +115,32 @@ function ServiceCard({ icon, title, description, longDescription, price, delay, 
         </DialogContent>
       </Dialog>
     </>
+=======
+function ServiceCard({ icon, title, description, delay, isInView }: ServiceCardProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{ duration: 0.5, delay }}
+      className="relative group"
+    >
+      <Card className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-melody-fuchsia/30 transition-all duration-300 overflow-hidden">
+        <CardContent className="p-6">
+          {/* Background glow effect */}
+          <div className="absolute inset-0 bg-gradient-to-r from-melody-purple/0 via-melody-fuchsia/0 to-melody-purple/0 group-hover:from-melody-purple/10 group-hover:via-melody-fuchsia/10 group-hover:to-melody-purple/10 transition-all duration-500"></div>
+          
+          {/* Icon */}
+          <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-4 group-hover:bg-melody-fuchsia/20 transition-colors text-melody-fuchsia">
+            {icon}
+          </div>
+          
+          {/* Content */}
+          <h3 className="text-xl font-semibold mb-2">{title}</h3>
+          <p className="text-white/70">{description}</p>
+        </CardContent>
+      </Card>
+    </motion.div>
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
   );
 }
 
@@ -123,6 +161,7 @@ export default function Services() {
         </svg>
       ),
       title: t.production,
+<<<<<<< HEAD
       description: t.productionDesc,
       longDescription: "Our professional music production service transforms your ideas into polished tracks. We offer:\n\n• Full song production from concept to completion\n• Access to our state-of-the-art recording studios\n• Collaboration with experienced producers\n• Beat making and instrumental production\n• Advanced audio processing and sound design\n\nEach project includes multiple revision rounds to ensure your vision comes to life exactly as you imagine.",
       price: "$500 - $2,500"
@@ -138,6 +177,9 @@ export default function Services() {
       description: t.voiceRecordingDesc,
       longDescription: "Perfect your vocal performance with our professional voice recording services:\n\n• High-definition vocal recordings in acoustic-treated environment\n• Professional microphones and preamps for crystal clear sound\n• Experienced engineers specializing in vocal recording\n• Pitch correction and timing adjustments as needed\n• Multiple takes to capture your best performance\n\nOur voice recording sessions include up to 4 hours of studio time with a dedicated sound engineer.",
       price: "$150 - $350"
+=======
+      description: t.productionDesc
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
     },
     {
       icon: (
@@ -153,10 +195,15 @@ export default function Services() {
           <line x1="17" y1="16" x2="23" y2="16"></line>
         </svg>
       ),
+<<<<<<< HEAD
       title: t.masterMixing,
       description: t.masterMixingDesc,
       longDescription: "Elevate your tracks with our professional mixing and mastering services:\n\n• Detailed balance adjustment of all track elements\n• Advanced EQ, compression, and spatial processing\n• Stereo enhancement and depth creation\n• Industry-standard loudness optimization\n• Format-specific masters (streaming, CD, vinyl)\n\nAll masters include revisions to ensure you're completely satisfied with the final product before release.",
       price: "$250 - $600"
+=======
+      title: t.distribution,
+      description: t.distributionDesc
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
     },
     {
       icon: (
@@ -166,10 +213,15 @@ export default function Services() {
           <path d="M17 18.5a13 13 0 0 0-10 0"></path>
         </svg>
       ),
+<<<<<<< HEAD
       title: t.vocalCoach,
       description: t.vocalCoachDesc,
       longDescription: "Develop your vocal skills and discover your unique voice with our vocal coaching services:\n\n• Personalized vocal technique assessment and development\n• Breathing and support exercises\n• Range expansion and strengthening\n• Style development and genre-specific techniques\n• Performance preparation and stage presence\n\nSessions are available as one-time coaching or as part of an ongoing development program tailored to your specific goals.",
       price: "$75 - $150/hour"
+=======
+      title: t.development,
+      description: t.developmentDesc
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
     },
     {
       icon: (
@@ -181,10 +233,15 @@ export default function Services() {
           <path d="M10 9H8"></path>
         </svg>
       ),
+<<<<<<< HEAD
       title: t.songWriting,
       description: t.songWritingDesc,
       longDescription: "Transform your ideas into complete, professional songs with our songwriting services:\n\n• Collaborative writing sessions with experienced songwriters\n• Development of lyrics, melody, chord progressions, and structure\n• Genre-specific composition techniques\n• Hook and chorus development\n• Complete song creation from concept to demo\n\nOur songwriting packages include multiple revision rounds and a demo production of the finished song.",
       price: "$400 - $1,500"
+=======
+      title: t.publishing,
+      description: t.publishingDesc
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
     },
     {
       icon: (
@@ -193,10 +250,15 @@ export default function Services() {
           <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
         </svg>
       ),
+<<<<<<< HEAD
       title: t.studioSessions,
       description: t.studioSessionsDesc,
       longDescription: "Book our professional recording facilities for your creative projects:\n\n• Access to our fully-equipped recording studios\n• Professional recording engineer included\n• High-end instruments and equipment available\n• Comfortable creative environment\n• Raw files provided after session completion\n\nStudio sessions can be booked hourly, half-day, or full-day depending on your project needs.",
       price: "$75 - $600"
+=======
+      title: t.licensing,
+      description: t.licensingDesc
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
     }
   ];
 
@@ -242,8 +304,11 @@ export default function Services() {
               icon={service.icon}
               title={service.title}
               description={service.description}
+<<<<<<< HEAD
               longDescription={service.longDescription}
               price={service.price}
+=======
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
               delay={0.2 + index * 0.1}
               isInView={isInView}
             />

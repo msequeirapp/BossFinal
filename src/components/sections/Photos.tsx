@@ -1,36 +1,68 @@
+<<<<<<< HEAD
 import { useRef, useState } from "react";
+=======
+import { useRef } from "react";
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
 import { motion, useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useLang } from "@/hooks/use-language";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
+<<<<<<< HEAD
 // Album gallery data using the uploaded images
 const galleryImages = [
   {
     id: 1,
     src: "/assets/album/album1.jpeg",
+=======
+// Sample gallery data (would typically come from an API or CMS)
+const galleryImages = [
+  {
+    id: 1,
+    src: "/assets/gallery/studio-session-1.jpg",
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
     alt: "Studio Session",
     category: "studio",
   },
   {
     id: 2,
+<<<<<<< HEAD
     src: "/assets/album/album2.jpeg",
     alt: "Live Performance",
+=======
+    src: "/assets/gallery/concert-1.jpg",
+    alt: "Live Concert Performance",
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
     category: "live",
   },
   {
     id: 3,
+<<<<<<< HEAD
     src: "/assets/album/album3.jpeg",
+=======
+    src: "/assets/gallery/artist-portrait-1.jpg",
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
     alt: "Artist Portrait",
     category: "portraits",
   },
   {
     id: 4,
+<<<<<<< HEAD
     src: "/assets/album/album4.jpeg",
+=======
+    src: "/assets/gallery/backstage-1.jpg",
+    alt: "Backstage Moments",
+    category: "backstage",
+  },
+  {
+    id: 5,
+    src: "/assets/gallery/studio-session-2.jpg",
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
     alt: "Recording Session",
     category: "studio",
   },
   {
+<<<<<<< HEAD
     id: 5,
     src: "/assets/album/album5.jpeg",
     alt: "Backstage Moments",
@@ -40,10 +72,16 @@ const galleryImages = [
     id: 6,
     src: "/assets/album/album6.jpeg",
     alt: "Live Concert",
+=======
+    id: 6,
+    src: "/assets/gallery/concert-2.jpg",
+    alt: "Festival Performance",
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
     category: "live",
   },
   {
     id: 7,
+<<<<<<< HEAD
     src: "/assets/album/album7.jpeg",
     alt: "Studio Equipment",
     category: "studio",
@@ -63,10 +101,14 @@ const galleryImages = [
   {
     id: 10,
     src: "/assets/album/album10.jpeg",
+=======
+    src: "/assets/gallery/artist-portrait-2.jpg",
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
     alt: "Artist Photoshoot",
     category: "portraits",
   },
   {
+<<<<<<< HEAD
     id: 11,
     src: "/assets/album/album11.jpeg",
     alt: "Studio Session",
@@ -83,6 +125,12 @@ const galleryImages = [
     src: "/assets/album/album13.jpeg",
     alt: "Backstage Moments",
     category: "backstage",
+=======
+    id: 8,
+    src: "/assets/gallery/award-ceremony.jpg",
+    alt: "Award Ceremony",
+    category: "events",
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
   }
 ];
 
@@ -91,7 +139,10 @@ export default function Photos() {
   const isInView = useInView(ref, { once: true, margin: "-100px 0px" });
   const { translations } = useLang();
   const t = translations.photos;
+<<<<<<< HEAD
   const [showAll, setShowAll] = useState(false);
+=======
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
   
   // For a real implementation, these would be used for filtering
   const categories = [
@@ -153,12 +204,20 @@ export default function Photos() {
         
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<<<<<<< HEAD
           {galleryImages.slice(0, showAll ? galleryImages.length : 8).map((image, index) => (
+=======
+          {galleryImages.map((image, index) => (
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
             <motion.div
               key={image.id}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+<<<<<<< HEAD
               transition={{ duration: 0.5, delay: 0.3 + (index * 0.05) }}
+=======
+              transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
               className="group relative overflow-hidden rounded-xl border border-white/10 hover:border-melody-fuchsia/30 transition-all duration-300"
             >
               <AspectRatio ratio={1 / 1}>
@@ -183,6 +242,7 @@ export default function Photos() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="flex justify-center mt-12"
         >
+<<<<<<< HEAD
           <Button 
             variant="outline" 
             className="border-white/20 hover:border-white hover:bg-white/10"
@@ -200,6 +260,13 @@ export default function Photos() {
                   <path d="m12 5 7 7-7 7"></path>
                 </>
               )}
+=======
+          <Button variant="outline" className="border-white/20 hover:border-white hover:bg-white/10">
+            {t.viewAll}
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
             </svg>
           </Button>
         </motion.div>

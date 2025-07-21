@@ -76,10 +76,14 @@ export default function Header() {
           </button>
 
           {/* CTA Button */}
+<<<<<<< HEAD
           <Button 
             onClick={() => window.open('https://wa.me/50663040420', '_blank')}
             className="bg-gradient-to-r from-melody-purple to-melody-fuchsia hover:opacity-90 transition-all"
           >
+=======
+          <Button className="bg-gradient-to-r from-melody-purple to-melody-fuchsia hover:opacity-90 transition-all">
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
             {t.getStarted}
           </Button>
         </nav>
@@ -147,10 +151,14 @@ export default function Header() {
                 </div>
 
                 <div className="mt-auto">
+<<<<<<< HEAD
                   <Button 
                     onClick={() => window.open('https://wa.me/50663040420', '_blank')}
                     className="w-full bg-gradient-to-r from-melody-purple to-melody-fuchsia hover:opacity-90 transition-all"
                   >
+=======
+                  <Button className="w-full bg-gradient-to-r from-melody-purple to-melody-fuchsia hover:opacity-90 transition-all">
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
                     {t.getStarted}
                   </Button>
                 </div>

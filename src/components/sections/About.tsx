@@ -151,7 +151,12 @@ export default function About() {
                 />
               </div>
               
+<<<<<<< HEAD
               {/* Decorative element - right side only */}
+=======
+              {/* Decorative elements */}
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 rounded-lg border border-melody-fuchsia/30 bg-melody-black/30 backdrop-blur-md z-10"></div>
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
               <div className="absolute -top-4 -right-4 w-32 h-32 rounded-lg border border-melody-purple/30 bg-melody-black/30 backdrop-blur-md z-0"></div>
               
               {/* Studio highlight box */}

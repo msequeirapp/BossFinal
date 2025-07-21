@@ -85,8 +85,12 @@ const translations = {
       title: "Photo Gallery",
       subtitle: "Captured Moments",
       description: "Browse through our collection of memorable moments from studio sessions, concerts, and special events.",
+<<<<<<< HEAD
       viewAll: "View All Photos",
       showLess: "Show Less"
+=======
+      viewAll: "View All Photos"
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
     },
     footer: {
       aboutText: "Boss of Melody is a premier music label dedicated to discovering and developing exceptional musical talent across genres.",
@@ -179,8 +183,12 @@ const translations = {
       title: "Galería de Fotos",
       subtitle: "Momentos Capturados",
       description: "Navega por nuestra colección de momentos memorables de sesiones de estudio, conciertos y eventos especiales.",
+<<<<<<< HEAD
       viewAll: "Ver Todas las Fotos",
       showLess: "Mostrar Menos"
+=======
+      viewAll: "Ver Todas las Fotos"
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
     },
     footer: {
       aboutText: "Boss of Melody es un sello musical premier dedicado a descubrir y desarrollar talento musical excepcional en diversos géneros.",
@@ -211,7 +219,11 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 // Provider component
 export const LanguageProvider = ({ children }: LanguageProviderProps) => {
+<<<<<<< HEAD
   const [lang, setLang] = useState<LanguageType>('es');
+=======
+  const [lang, setLang] = useState<LanguageType>('en');
+>>>>>>> 79a8b376af99b1a219e0288a23002118e200809b
 
   const toggleLang = () => {
     setLang(prevLang => prevLang === 'en' ? 'es' : 'en');
